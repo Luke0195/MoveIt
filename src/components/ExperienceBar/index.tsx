@@ -1,5 +1,5 @@
 
-const ExperienceBar:React.FC  =() =>{
+export default function ExperienceBar(){
   return(
     <>
       <header className="experience-bar">
@@ -14,5 +14,3 @@ const ExperienceBar:React.FC  =() =>{
     </>
   )
 }
-
-export default ExperienceBar;
