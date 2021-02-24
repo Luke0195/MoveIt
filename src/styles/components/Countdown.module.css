@@ -72,4 +72,13 @@ transition: background 0.2s ease-out;
   background:var(--white);
   color:var(--text);
   cursor: not-allowed;
+  border-bottom: 4px solid #4fcf4a;
+ 
 }
+
+.countdownButton:disabled img{
+  margin-left: 20px;
+}
+
+
+
