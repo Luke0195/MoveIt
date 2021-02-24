@@ -56,3 +56,14 @@ transition: background 0.2s ease-out;
 .countdownButton:hover{
   background:var(--blue-dark)
 }
+
+.countdownButtonActive{
+  background:var(--white);
+  color:var(--tile)
+}
+
+.countdownButtonActive:hover{
+ 
+ background: var(--red);
+ color: var(--white);
+}
