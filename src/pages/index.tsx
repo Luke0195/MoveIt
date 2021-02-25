@@ -18,17 +18,16 @@ export default function Home() {
       </Head>
     <ExperienceBar/>
     <CountdownProvider>
-
-    <section >
-      <div>
-        <Profile/>
-        <CompleteChallenges/>
-        <CountDown/>
-      </div>
-      <div>
-        <ChallengeBox/>
-      </div>
-    </section>
+      <section >
+          <div>
+            <Profile/>
+            <CompleteChallenges/>
+            <CountDown/>
+          </div>
+          <div>
+            <ChallengeBox/>
+          </div>
+        </section>
     </CountdownProvider>
     
    </div>
