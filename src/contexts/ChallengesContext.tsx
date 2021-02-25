@@ -5,7 +5,7 @@ import mocks from '../mocks/challenges.json'
 interface ChallengeData{
    type: 'body' | 'eye'
    description:string;
-   ammount: number;
+   amount: number;
 }
 interface ChallengesContextData{
   experienceToNextLevel:number;
@@ -16,6 +16,7 @@ interface ChallengesContextData{
   startNewChallenge:  () => void;
   activeChallenge:ChallengeData;
   resetChallenges: () => void;
+  completeChallenge: () => void;
 }
 
 interface ChallengesProvider{
@@ -46,6 +47,23 @@ export function ChallengesProvider({children}){
     setActiveChallenge(null)
   }
 
+  function completeChallenge(){
+    if(!activeChallenge){
+      return
+    }
+    const {amount }  = activeChallenge;
+    let finalExperience = currentExperience + amount;
+
+    if(finalExperience > experienceToNextLevel){
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp();
+    }
+
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null)
+    setChallengeCompleted(challengesCompleted + 1)
+
+  }
   return(
     <ChallengesContext.Provider value={
       {level,
@@ -55,8 +73,9 @@ export function ChallengesProvider({children}){
        startNewChallenge,
       activeChallenge,
       resetChallenges,
-      experienceToNextLevel
-      }
+      experienceToNextLevel,
+      completeChallenge
+    }
       }>
      {children}
     </ChallengesContext.Provider>
