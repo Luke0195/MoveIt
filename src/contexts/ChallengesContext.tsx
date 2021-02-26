@@ -38,14 +38,21 @@ export function ChallengesProvider({children}){
     Notification.requestPermission();
   },[])
 
+  
   function levelUp(){
     setLevel(level + 1 );
+    new Audio('/level_up.mp3').play();
+    new Notification('Level Up! 🎉 ', {
+      body: `Vc subiu para o nivel ${level}`
+    })
   }
 
   function startNewChallenge(){
     const randomChallengesIndex = Math.floor( Math.random() * mocks.length);
     const challenge = mocks[randomChallengesIndex];
     setActiveChallenge(challenge);
+    
+    new  Audio('/notification.mp3').play();
 
     if(Notification.permission === 'granted'){
       new Notification('Novo Desafio 🎉', {
