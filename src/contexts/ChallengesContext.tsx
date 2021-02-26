@@ -34,6 +34,12 @@ export function ChallengesProvider({children}){
   const experienceToNextLevel = Math.pow((level + 1 ) * 4, 2)
   
 
+
+  useEffect(() =>{
+    
+
+  },[level, currentExperience, challengesCompleted])
+
   useEffect(() => {
     Notification.requestPermission();
   },[])
@@ -69,7 +75,7 @@ export function ChallengesProvider({children}){
     if(!activeChallenge){
       return
     }
-    const {amount }  = activeChallenge;
+    const { amount }  = activeChallenge;
     let finalExperience = currentExperience + amount;
 
     if(finalExperience > experienceToNextLevel){
@@ -99,3 +105,5 @@ export function ChallengesProvider({children}){
     </ChallengesContext.Provider>
   )
 }
+
+// Usamos os cookies para realizar os armazenamento no storaged.
